@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/script.js"></script>
+  <title>CadPes | Adicionar</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: 	#3b5998;">
+    <div class="container">
+
+
+      <a class="navbar-brand" href="#">Cadastro de Pessoas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Cadastrados </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adicionar.html">Adicionar <span class="sr-only">(current)</span> </a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisa" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Formulario -->
+
+  <div class="container" style="margin-top: 20px;">
+    <!-- <form> -->
+    <form>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="personsName">Nome *</label>
+          <input type="text" class="form-control" id="personsName" placeholder="Ex: Ada" required />
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="personsNumber" class="col-form-label">Numero:</label>
+          <input type="text" class="form-control" id="personsNumber" placeholder="Ex: 39-44-5323523" required />
+        </div>
+      </div>
+
+      <button class="btn btn-secondary" onclick="validateFieldsToCreate()" type="button">Salvar</button>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</body>
+
+</html>

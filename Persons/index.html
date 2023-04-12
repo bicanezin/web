@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/script.js"></script>
+  <title>CadPes | Menu</title>
+
+  <!-- LINKS ADICIONAR BOOTSTRAP -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <!-- ICONES FONTSAWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: 	#3b5998;">
+    <div class="container">
+
+
+      <a class="navbar-brand" href="#">Cadastro de Pessoas</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Cadastrados <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adicionar.html">Adicionar</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" id="searchpersons" placeholder="Ex: Ada"
+          aria-label="Pesquisar" required />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="validateFieldSearch()">
+            Pesquisar
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <!-- TABELA PERSONS -->
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Identificação</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Numero</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PAGINAÇÃO -->
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center ">
+      <li class="page-item">
+        <a class="page-link" id="anterior" href="#" tabindex="-1">Anterior</a>
+      </li>
+      <li class="page-item">
+        <span class="page-link" href="#" id="numbering"></span>
+      </li>
+      <li class="page-item">
+        <a class="page-link" id="proximo" href="#">Próximo</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- UPDATE TABELA PERSONS -->
+  <div class="modal fade" id="modalUpdatepersons" tabindex="-1" role="dialog" aria-labelledby="modalUpdatepersonsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalUpdatepersonsLabel">Editar Pessoa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="personsID" class="col-form-label">ID:</label>
+              <input type="text" class="form-control" id="personsID" disabled />
+            </div>
+
+            <div class="form-group">
+              <label for="personsName" class="col-form-label">Nome:</label>
+              <input type="text" class="form-control" id="personsName" placeholder="Ex: pizza de mussarela" required />
+            </div>
+
+            <div class="form-group">
+              <label for="personsNumber" class="col-form-label">Numero:</label>
+              <input type="text" class="form-control" id="personsNumber"
+                placeholder="Ex: 39-44-5323523" required />
+            </div>
+            
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button"
+            onclick="validateFieldsToUpdate({ personsID: $('#personsID').val(), personsName: $('#personsName').val(), personsNumber: $('#personsNumber').val() })"
+            class="btn btn-primary">
+            Enviar
+          </button>
+          <div style="color: rgb(209, 95, 95); visibility: hidden" id="requiredFields">* Obrigatórios</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  
+  <!-- iniciando a aplicacao -->
+  <script>   
+    getAllPersonsAndFillTable();
+  </script>
+</body>
+
+</html>
